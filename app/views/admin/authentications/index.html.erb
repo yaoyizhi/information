@@ -1,0 +1,13 @@
+<table class="table table-boldered">
+    <tbody>
+        <% @authentications.each do |authentication| %>
+            <tr>
+                <td><%=link_to(authentication.user_name, admin_authentication_path(authentication))%></td>
+                <td><%= link_to("Validate", validate_admin_authentication_path(authentication), method: :post, class: "btn btn-xs btn-default")%></td>
+                <td><%= link_to("Invalidate", invalidate_admin_authentication_path(authentication), method: :post, class: "btn btn-xs btn-default")%></td>
+                <td><%= link_to("Delete", admin_job_path(job), method: :delete, :data => {:confirm => "Are you sure?"})%></td>
+                <td><%= authentication.created_at %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

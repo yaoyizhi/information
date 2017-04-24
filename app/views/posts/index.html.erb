@@ -1,3 +1,8 @@
+<% if current_user&&current_user == @post.user %>
+    <%= link_to("Add a message", new_post_path(@post), class: "btn btn-primary pull-right")%>
+<% else %>
+    <%= link_to("Write a authentication", new_authentication_path(@authentication), class: "btn btn-primary pull-right")%>
+<% end %>
 <table class="table table-boldered">
     <tbody>
         <% @posts.each do |post| %>
